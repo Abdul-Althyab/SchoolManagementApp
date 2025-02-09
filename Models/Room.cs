@@ -11,7 +11,6 @@ namespace SchoolManagementApp.Models
         [MinLength(3)]
         [MaxLength(10)]
         public string? RoomName { get; set; }
-        [Range(0, 25)]
-        public int RoomCapacity { get; set; }
+
     }
 }
