@@ -1,4 +1,5 @@
 using SchoolManagementApp.Context;
+using SchoolManagementApp.Repositories.Courses;
 using SchoolManagementApp.Repositories.Rooms;
 using SchoolManagementApp.Repositories.Students;
 using SchoolManagementApp.Repositories.Teachers;
@@ -11,6 +12,7 @@ builder.Services.AddSqlServer<MyDbContext>(builder.Configuration.GetConnectionSt
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 builder.Services.AddScoped<ITeacherRepository, TeacherRepository>();
 builder.Services.AddScoped<IRoomRepository, RoomRepository>();
+builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 
 
 var app = builder.Build();
