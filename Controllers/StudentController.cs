@@ -16,7 +16,7 @@ namespace SchoolManagementApp.Controllers
         public IActionResult Index()
         {
             List<Student> students = _studentRepository.GetAllStudents();
-            return View();
+            return View(students);
         }
 
         //Runder the view to create a new student

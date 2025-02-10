@@ -1,7 +1,18 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
-}
+﻿@model List<Student>
 
-<h1>Index</h1>
+<link href="~/css/table.css" rel="stylesheet" />
+<table>
+    <tr>
+        <th>Student Name</th>
+        <th>Student Age</th>
+    </tr>
+    @foreach (var student in Model)
+    {
+        <tr>
+            <td>@student.StudentName</td>
+            <td>@student.StudentAge</td>
+        </tr>
+    }
+</table>
+
 
