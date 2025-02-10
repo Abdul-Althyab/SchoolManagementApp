@@ -1,6 +1,6 @@
 ﻿using SchoolManagementApp.Models;
 
-namespace SchoolManagementApp.Repositories
+namespace SchoolManagementApp.Repositories.Students
 {
     public interface IStudentRepository
     {

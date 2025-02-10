@@ -1,7 +1,7 @@
 ﻿using SchoolManagementApp.Context;
 using SchoolManagementApp.Models;
 
-namespace SchoolManagementApp.Repositories
+namespace SchoolManagementApp.Repositories.Students
 {
     public class StudentRepository : IStudentRepository
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SchoolManagementApp.Models;
-using SchoolManagementApp.Repositories;
+using SchoolManagementApp.Repositories.Students;
 
 namespace SchoolManagementApp.Controllers
 {

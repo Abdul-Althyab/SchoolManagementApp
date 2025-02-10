@@ -1,5 +1,5 @@
 using SchoolManagementApp.Context;
-using SchoolManagementApp.Repositories;
+using SchoolManagementApp.Repositories.Students;
 
 var builder = WebApplication.CreateBuilder(args);
 
