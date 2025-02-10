@@ -1,7 +1,21 @@
-﻿
-@{
-    ViewData["Title"] = "Create";
-}
-
-<h1>Create</h1>
-
+﻿<link href="~/css/form.css" rel="stylesheet" />
+<div class="center">
+    <h1>Student Registration</h1>
+    <form action="Create" method="post">
+        <div class="inputbox">
+            <input type="text" id="StudentName" name="StudentName" required="required">
+            <span>Student Name</span>
+        </div>
+        <div class="inputbox">
+            <input type="text" id="StudentAge" name="StudentAge" required="required">
+            <span>Student Age</span>
+        </div>
+        <div class="inputbox">
+            <input type="checkbox" value="true" id="IsActive" name="IsActive" checked>
+            <span class="position">Is Active</span>
+         </div>
+        <div class="inputbox">
+            <input type="submit" value="Save">
+        </div>
+    </form>
+</div>
