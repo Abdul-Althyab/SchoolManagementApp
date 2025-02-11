@@ -5,12 +5,16 @@
     <tr>
         <th>Student Name</th>
         <th>Student Age</th>
+        <th>Delete</th>
     </tr>
     @foreach (var student in Model)
     {
         <tr>
             <td>@student.StudentName</td>
             <td>@student.StudentAge</td>
+            <td>
+                <a href="/Student/Delete/@student.StudentId">Delete @student.StudentName</a>
+            </td>
         </tr>
     }
 </table>
