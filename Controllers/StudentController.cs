@@ -30,7 +30,8 @@ namespace SchoolManagementApp.Controllers
         {
             //save the student to the database
             _studentRepository.Create(student);
-            return View();
+            List<Student> students = _studentRepository.GetAllStudents();
+            return View("Index", students);
         }
 
         [HttpDelete]
@@ -38,7 +39,8 @@ namespace SchoolManagementApp.Controllers
         {
             //delete the student from the database
             _studentRepository.Delete(studentId);
-            return View();
+            List<Student> students = _studentRepository.GetAllStudents();
+            return View("Index", students);
         }
         [HttpGet]
         public ActionResult Register()
