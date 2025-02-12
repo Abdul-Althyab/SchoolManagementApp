@@ -1,7 +1,17 @@
-﻿
-@{
-    ViewData["Title"] = "Create";
-}
-
-<h1>Create</h1>
+﻿<div class="center">
+    <h1>Add a teacher </h1>
+    <form action="Create" method="post">
+        <div class="inputbox">
+            <input type="text" id="TeacherName" name="TeacherName" required="required">
+            <span>Teacher Name</span>
+        </div>
+        <div class="inputbox">
+            <input type="text" id="TeacherAge" name="TeacherAge" required="required">
+            <span>Teacher Age</span>
+        </div>
+        <div class="inputbox">
+            <input type="submit" value="Save">
+        </div>
+    </form>
+</div>
 

@@ -1,7 +1,28 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
-}
+﻿@model List<Teacher>
 
-<h1>Index</h1>
+<a class="nav-link text-dark" asp-area="" asp-controller="Teacher" asp-action="Create">Add new teacher</a>
+
+<br />
+<table>
+    <tr>
+        <th>Teacher Name</th>
+        <th>Teacher Age</th>
+        <th>Delete</th>
+    </tr>
+    @foreach (var teacher in Model)
+    {
+        <tr>
+            <td>@teacher.TeacherName</td>
+            <td>@teacher.TeacherAge</td>
+            <td>
+                <a href="/Teacher/Delete/@teacher.TeacherId">Delete @teacher.TeacherName</a>
+            </td>
+        </tr>
+    }
+</table>
+
+
+
+
+
 

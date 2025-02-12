@@ -16,7 +16,7 @@ namespace SchoolManagementApp.Controllers
         public IActionResult Index()
         {
             List<Teacher> teachers = _teacherRepository.GetAllTeachers();
-            return View();
+            return View(teachers);
         }
         [HttpGet]
         public ViewResult Create()
@@ -30,14 +30,15 @@ namespace SchoolManagementApp.Controllers
             {
                 _teacherRepository.Create(teacher);
             }
-            return View();
+            List<Teacher> teachers = _teacherRepository.GetAllTeachers();
+            return View("Index", teachers);
         }
 
-        [HttpDelete]
-        public ActionResult Delete(int teacherId)
+        public ActionResult Delete(int id)
         {
-            _teacherRepository.Delete(teacherId);
-            return View();
+            _teacherRepository.Delete(id);
+            List<Teacher> teachers = _teacherRepository.GetAllTeachers();
+            return View("Index", teachers);
         }
     }
 }
