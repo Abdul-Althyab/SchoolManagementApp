@@ -43,7 +43,7 @@ namespace SchoolManagementApp.Migrations
 
                     b.HasIndex("TeacherId");
 
-                    b.ToTable("Course");
+                    b.ToTable("Courses");
                 });
 
             modelBuilder.Entity("SchoolManagementApp.Models.Room", b =>

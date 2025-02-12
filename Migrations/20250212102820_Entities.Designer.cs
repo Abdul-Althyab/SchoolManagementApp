@@ -11,8 +11,8 @@ using SchoolManagementApp.Context;
 namespace SchoolManagementApp.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20250209120138_intities")]
-    partial class intities
+    [Migration("20250212102820_Entities")]
+    partial class Entities
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,7 +46,7 @@ namespace SchoolManagementApp.Migrations
 
                     b.HasIndex("TeacherId");
 
-                    b.ToTable("Course");
+                    b.ToTable("Courses");
                 });
 
             modelBuilder.Entity("SchoolManagementApp.Models.Room", b =>
