@@ -34,14 +34,21 @@ namespace SchoolManagementApp.Controllers
             return View("Index", students);
         }
 
-        [HttpDelete]
-        public ActionResult Delete(int studentId)
+
+
+        [HttpGet]
+        public ActionResult Delete(int id)
         {
-            //delete the student from the database
-            _studentRepository.Delete(studentId);
+            if (id == 0)
+            {
+                return BadRequest("Geen geldig ID meegegeven");
+            }
+
+            _studentRepository.Delete(id);
             List<Student> students = _studentRepository.GetAllStudents();
             return View("Index", students);
         }
+
         [HttpGet]
         public ActionResult Register()
         {

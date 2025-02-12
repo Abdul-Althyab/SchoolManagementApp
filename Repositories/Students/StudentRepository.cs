@@ -38,15 +38,9 @@ namespace SchoolManagementApp.Repositories.Students
 
         public void Delete(int studentId)
         {
-            try
-            {
-                _myDbConnection.Students.Remove(_myDbConnection.Students.Find(studentId));
-                _myDbConnection.SaveChanges();
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
+            Student studentToDelete = _myDbConnection.Students.Find(studentId);
+            _myDbConnection.Students.Remove(studentToDelete);
+            _myDbConnection.SaveChanges();
         }
 
 
