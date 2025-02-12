@@ -1,7 +1,31 @@
-﻿
-@{
-    ViewData["Title"] = "Register";
-}
+﻿@using SchoolManagementApp.Models.ViewModels
+@model StudentCourseVM
+ 
 
-<h1>Register</h1>
+
+<div class="center">
+    <h1>Student Registration</h1>
+    <form action="Register" method="post">
+        <div class="inputbox">
+            <select id="StudentId" name="StudentId">
+                @foreach (Student student in Model.Students)
+                {
+                    <option value="@student.StudentId">@student.StudentName</option>
+                }
+            </select>
+        </div>
+        <div class="inputbox">
+            <select id="CourseId" name="CourseId">
+                @foreach (Course course in Model.Courses)
+                {
+                    <option value="@course.CourseId">@course.CourseName</option>
+                }
+            </select>
+        </div>
+        <div class="inputbox">
+            <input type="submit" value="Register">
+        </div>
+    </form>
+</div>
+
 

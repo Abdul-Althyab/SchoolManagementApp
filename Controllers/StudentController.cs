@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SchoolManagementApp.Models;
+using SchoolManagementApp.Models.ViewModels;
+using SchoolManagementApp.Repositories.Courses;
 using SchoolManagementApp.Repositories.Students;
 
 namespace SchoolManagementApp.Controllers
@@ -7,9 +9,11 @@ namespace SchoolManagementApp.Controllers
     public class StudentController : Controller
     {
         private readonly IStudentRepository _studentRepository;
-        public StudentController(IStudentRepository studentRepository)
+        private readonly ICourseRepository _courseRepository;
+        public StudentController(IStudentRepository studentRepository, ICourseRepository courseRepository)
         {
             _studentRepository = studentRepository;
+            _courseRepository = courseRepository;
         }
         //list of students
         [HttpGet]
@@ -49,14 +53,17 @@ namespace SchoolManagementApp.Controllers
         [HttpGet]
         public ActionResult Register()
         {
-            return View();
+            StudentCourseVM studentCourseVM = new StudentCourseVM();
+            studentCourseVM.Students = _studentRepository.GetAllStudents();
+            studentCourseVM.Courses = _courseRepository.GetAllCourses();
+            return View(studentCourseVM);
         }
         [HttpPost]
         public ActionResult Register(int studentId, int courseId)
         {
             //register the student to the course
             _studentRepository.Register(studentId, courseId);
-            return View();
+            return RedirectToAction("Register");
         }
     }
 }
