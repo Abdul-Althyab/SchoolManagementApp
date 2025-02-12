@@ -1,7 +1,30 @@
-﻿
-@{
-    ViewData["Title"] = "Create";
-}
+﻿@model List<Teacher>
 
-<h1>Create</h1>
+<div class="center">
+    <h1>Add a course</h1>
+    <form action="Create" method="post">
+        <div class="inputbox">
+            <input type="text" id="CourseName" name="CourseName" required="required">
+            <span>Course Name</span>
+        </div>
+        <div class="inputbox">
+            <input type="number" id="CourseCapacity" name="CourseCapacity" required="required">
+            <span>Course Capacity</span>
+        </div>
+        <div class="inputbox">
+           <label for="TeacherId">Select teacher:</label>
+        </div>
 
+        <div class="inputbox">
+            <select id="TeacherId" name="TeacherId">
+                @foreach (Teacher teacher in Model)
+                {
+                    <option value="@teacher.TeacherId">@teacher.TeacherName</option>
+                }
+                </select>
+        </div>
+        <div class="inputbox">
+            <input type="submit" value="Save">
+        </div>
+    </form>
+</div>
