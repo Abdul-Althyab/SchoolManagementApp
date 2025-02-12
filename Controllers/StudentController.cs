@@ -34,9 +34,6 @@ namespace SchoolManagementApp.Controllers
             return View("Index", students);
         }
 
-
-
-        [HttpGet]
         public ActionResult Delete(int id)
         {
             if (id == 0)
