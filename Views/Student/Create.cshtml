@@ -1,6 +1,6 @@
 ﻿<div class="center">
     <h1>Student Registration</h1>
-    <form action="Create" method="post">
+    <form action="Create" method="post" enctype="multipart/form-data">
         <div class="inputbox">
             <input type="text" id="StudentName" name="StudentName" required="required">
             <span>Student Name</span>
@@ -13,6 +13,12 @@
             <input type="checkbox" value="true" id="IsActive" name="IsActive" checked>
             <span class="position">Is Active</span>
          </div>
+        <div>
+            <label for="studentPhoto">Student Photo:</label>
+        </div>
+        <div class="inputbox">
+            <input type="file" name="studentPhoto">                   
+        </div>
         <div class="inputbox">
             <input type="submit" value="Save">
         </div>

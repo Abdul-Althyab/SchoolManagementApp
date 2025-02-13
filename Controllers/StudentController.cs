@@ -3,6 +3,7 @@ using SchoolManagementApp.Models;
 using SchoolManagementApp.Models.ViewModels;
 using SchoolManagementApp.Repositories.Courses;
 using SchoolManagementApp.Repositories.Students;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace SchoolManagementApp.Controllers
 {
@@ -10,10 +11,13 @@ namespace SchoolManagementApp.Controllers
     {
         private readonly IStudentRepository _studentRepository;
         private readonly ICourseRepository _courseRepository;
-        public StudentController(IStudentRepository studentRepository, ICourseRepository courseRepository)
+        private readonly IHostingEnvironment _hostingEnvironment;
+        public StudentController(IStudentRepository studentRepository, ICourseRepository courseRepository,
+            IHostingEnvironment hostingEnvironment)
         {
             _studentRepository = studentRepository;
             _courseRepository = courseRepository;
+            _hostingEnvironment = hostingEnvironment;
         }
         //list of students
         [HttpGet]
@@ -23,8 +27,8 @@ namespace SchoolManagementApp.Controllers
             // viewdata -store data for the current request
             // viewbag - store data for the current request
 
-            ViewBag.Title = "Student List";
-            ViewData["Title"] = "Student List";
+            // ViewBag.Title = "Student List";
+            //ViewData["Title"] = "Student List";
 
             //get all students from the database
             List<Student> students = _studentRepository.GetAllStudents();
@@ -38,8 +42,15 @@ namespace SchoolManagementApp.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(Student student)
+        public ActionResult Create(Student student, IFormFile studentPhoto)
         {
+            var wwwrootPath = _hostingEnvironment.WebRootPath + "/studentPictures/";
+            Guid guid = Guid.NewGuid();
+            string fullPath = System.IO.Path.Combine(wwwrootPath, guid + studentPhoto.FileName);
+            using (var fileStream = new FileStream(fullPath, FileMode.Create))
+            {
+                studentPhoto.CopyTo(fileStream);
+            }
             //save the student to the database
             _studentRepository.Create(student);
             List<Student> students = _studentRepository.GetAllStudents();
@@ -70,7 +81,7 @@ namespace SchoolManagementApp.Controllers
         public ActionResult Register(int studentId, int courseId)
         {
             //tempdata - store data for the next request
-            TempData["test"] = 10;
+            //TempData["test"] = 10;
 
             //register the student to the course
             _studentRepository.Register(studentId, courseId);

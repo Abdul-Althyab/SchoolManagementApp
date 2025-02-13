@@ -50,6 +50,7 @@ body {
 
         .center .inputbox:last-child {
             margin-bottom: 0;
+           
         }
 
         .center .inputbox span {
@@ -64,7 +65,7 @@ body {
         .position {
             padding-top: 13px;
         }
-
+             
         .center .inputbox input:focus ~ span,
         .center .inputbox input:valid ~ span {
             transform: translateX(-13px) translateY(-35px);
@@ -76,6 +77,7 @@ body {
             background: dodgerblue;
             color: #fff;
             border: #fff;
+
         }
 
         .center .inputbox:hover [type="submit"] {
