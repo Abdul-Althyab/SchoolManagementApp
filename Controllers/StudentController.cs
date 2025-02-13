@@ -51,6 +51,7 @@ namespace SchoolManagementApp.Controllers
             {
                 studentPhoto.CopyTo(fileStream);
             }
+            student.StudentPhoto = guid + studentPhoto.FileName;
             //save the student to the database
             _studentRepository.Create(student);
             List<Student> students = _studentRepository.GetAllStudents();

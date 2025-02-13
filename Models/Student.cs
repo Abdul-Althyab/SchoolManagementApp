@@ -15,6 +15,7 @@ namespace SchoolManagementApp.Models
         public bool IsActive { get; set; }
         [Range(5, 18)]
         public int StudentAge { get; set; }
+        public string StudentPhoto { get; set; }
 
     }
 }
