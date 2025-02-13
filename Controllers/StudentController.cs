@@ -19,6 +19,14 @@ namespace SchoolManagementApp.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            //state management - viewdata, viewbag, tempdata
+            // viewdata -store data for the current request
+            // viewbag - store data for the current request
+
+            ViewBag.Title = "Student List";
+            ViewData["Title"] = "Student List";
+
+            //get all students from the database
             List<Student> students = _studentRepository.GetAllStudents();
             return View(students);
         }
@@ -61,9 +69,15 @@ namespace SchoolManagementApp.Controllers
         [HttpPost]
         public ActionResult Register(int studentId, int courseId)
         {
+            //tempdata - store data for the next request
+            TempData["test"] = 10;
+
             //register the student to the course
             _studentRepository.Register(studentId, courseId);
             return RedirectToAction("Register");
+
+            //redirect to the teacher index page
+            //return RedirectToAction("Index", "Teacher");
         }
     }
 }

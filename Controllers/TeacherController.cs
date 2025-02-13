@@ -15,6 +15,10 @@ namespace SchoolManagementApp.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            if (TempData["test"] != null)
+            {
+                int value = (int)TempData["test"];
+            }
             List<Teacher> teachers = _teacherRepository.GetAllTeachers();
             return View(teachers);
         }
